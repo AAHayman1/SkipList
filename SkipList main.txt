@@ -1,0 +1,102 @@
+public static void main(String[] args) {
+        SkipListSet<Integer> idk = new SkipListSet<>();
+
+        idk.add(10);
+        idk.add(11);
+        idk.add(9);
+        idk.add(12);
+        idk.add(13);
+        idk.add(8);
+
+        System.out.println(idk.contains(14));
+
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        SkipListSet<Integer> idk2 = new SkipListSet<>(list);
+
+        System.out.println();
+        System.out.println(idk2.contains(1));
+        System.out.println(idk2.contains(2));
+        System.out.println(idk2.contains(3));
+        System.out.println();
+
+        idk.addAll(list);
+
+        System.out.println("idk add all");
+        System.out.println(idk.contains(1));
+        System.out.println(idk.contains(2));
+        System.out.println(idk.contains(3));
+
+        System.out.println();
+
+        System.out.println("idk contains all");
+        System.out.println(idk.containsAll(list));
+
+        idk.remove(3);
+        System.out.println();
+        System.err.println("removed 3");
+        System.out.println(idk.contains(3));
+
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(2);
+
+        idk.removeAll(list2);
+        System.out.println();
+        System.err.println("removed 1 and 2 in list");
+        System.out.println(idk.contains(1));
+        System.out.println(idk.contains(2));
+
+        ArrayList<Integer> list3 = new ArrayList<>();
+        list3.add(9);
+        list3.add(12);
+
+
+        idk.retainAll(list3);
+        System.out.println("Removed all but 9 and 12");
+        System.out.println(idk.contains(8));
+        System.out.println(idk.contains(9));
+        System.out.println(idk.contains(10));
+        System.out.println(idk.contains(11));
+        System.out.println(idk.contains(12));
+        System.out.println(idk.contains(13));
+
+        System.out.println();
+        System.out.println("idk = idk2 ?");
+        System.out.println(idk.equals(idk2));
+
+        SkipListSet<Integer> same1 = new SkipListSet<>(list);
+        SkipListSet<Integer> same2 = new SkipListSet<>(list);
+
+        same1.add(1);
+        same2.add(1);
+        same1.add(2);
+        same2.add(2);
+        same1.add(3);
+        same2.add(3);
+        same1.add(4);
+        same2.add(4);
+
+        System.out.println();
+        System.out.println("same1 = same2 ?");
+        System.out.println(same1.equals(same2));
+
+       Iterator<Integer> check = idk.iterator();
+
+       while(check.hasNext()){
+        System.out.println(check.next());
+       }
+
+       System.out.println();
+       System.out.println("Clear idk");
+       idk.clear();
+       
+       check = idk.iterator();
+       while(check.hasNext()){
+        System.out.println(check.next());
+       }
+       System.out.println(idk.isEmpty());
+    }
